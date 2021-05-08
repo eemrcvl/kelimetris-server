@@ -10,4 +10,5 @@ public class FeedbackDto {
     private String message;
     private String insertDate;
     private String insertTime;
+    private int stars;
 }

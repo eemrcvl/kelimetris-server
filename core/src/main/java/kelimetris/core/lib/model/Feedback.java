@@ -1,9 +1,12 @@
 package kelimetris.core.lib.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import kelimetris.core.lib.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Builder
@@ -15,6 +18,9 @@ import javax.persistence.Id;
 public class Feedback extends BaseEntity {
     private static final long serialVersionUID = 1010363936995158759L;
     @Id
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     @NonNull
     private String userId;
     @NonNull
@@ -23,4 +29,6 @@ public class Feedback extends BaseEntity {
     private String insertDate;
     @NonNull
     private String insertTime;
+    @NonNull
+    private int stars;
 }

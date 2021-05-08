@@ -29,8 +29,11 @@ public class GameLogServiceImpl implements GameLogService {
 
     @Override
     public void receiveSaveLog(GameLogDto gameLogDto) {
-        var gameLog = processGameLogObject(gameLogDto);
-        gameLogRepository.save(gameLog);
+        // TODO: Might change the necessity of already registered user when saving game logs.
+        if (userRepository.findUserById(gameLogDto.getUserId()).isPresent()) {
+            var gameLog = processGameLogObject(gameLogDto);
+            gameLogRepository.save(gameLog);
+        }
     }
 
     private GameLog processGameLogObject(GameLogDto gameLogDto) {

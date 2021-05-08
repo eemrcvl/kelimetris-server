@@ -1,9 +1,7 @@
 package kelimetris.serverside.service;
 
-import kelimetris.core.lib.model.Score;
-
-import java.util.List;
+import org.springframework.http.ResponseEntity;
 
 public interface ScoreboardService {
-    List<Score> returnScoreboard(String userId);
+    ResponseEntity returnScoreboard(String userId);
 }

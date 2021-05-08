@@ -15,9 +15,9 @@ import kelimetris.serverside.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
+@Service
 public class UserServiceImpl implements UserService {
     private final ModelMapper modelMapper;
     private final FeedbackRepository feedbackRepository;
