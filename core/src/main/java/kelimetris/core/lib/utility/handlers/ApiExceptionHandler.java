@@ -5,6 +5,7 @@ import kelimetris.core.lib.dto.ApiResponse;
 import kelimetris.core.lib.utility.exceptions.FeedbackException;
 import kelimetris.core.lib.utility.exceptions.RegistrationException;
 import kelimetris.core.lib.utility.exceptions.ScoreboardException;
+import kelimetris.core.lib.utility.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,5 +36,12 @@ public class ApiExceptionHandler {
     @ResponseBody
     public ApiResponse handleScoreboardException(ScoreboardException scoreboardException) {
         return new ApiResponse(KelimetrisConstants.SCOREBOARD_RETRIEVAL_ERROR_MESSAGE);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public ApiResponse handleUserNotFoundException(UserNotFoundException userNotFoundException) {
+        return new ApiResponse(KelimetrisConstants.USER_NOT_FOUND_MESSAGE);
     }
 }

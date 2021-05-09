@@ -2,20 +2,20 @@ package kelimetris.core.lib.repository;
 
 import kelimetris.core.lib.base.BaseRepository;
 import kelimetris.core.lib.model.GameLog;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface GameLogRepository extends BaseRepository<GameLog> {
-    List<GameLog> findAll();
+    Page<GameLog> findAll(Pageable pageable);
 
-    List<GameLog> findAllByUserId(String userId);
+    Page<GameLog> findAllByUserId(String userId, Pageable pageable);
 
-    List<GameLog> findAllByInsertDateAfter(String date);
+    Page<GameLog> findAllByInsertDateAfter(String date, Pageable pageable);
 
-    List<GameLog> findAllByInsertDateBefore(String date);
+    Page<GameLog> findAllByInsertDateBefore(String date, Pageable pageable);
 
-    List<GameLog> findAllByInsertDateBetween(String startDate, String endDate);
+    Page<GameLog> findAllByInsertDateBetween(String startDate, String endDate, Pageable pageable);
 
 }

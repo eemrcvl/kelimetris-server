@@ -2,6 +2,8 @@ package kelimetris.core.lib.repository;
 
 import kelimetris.core.lib.base.BaseRepository;
 import kelimetris.core.lib.model.Feedback;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,21 +11,21 @@ import java.util.Optional;
 
 @Repository
 public interface FeedbackRepository extends BaseRepository<Feedback> {
-    List<Feedback> findAll();
+    Page<Feedback> findAll(Pageable pageable);
 
-    List<Feedback> findAllByUserId(String userId);
+    Page<Feedback> findAllByUserId(String userId, Pageable pageable);
 
-    List<Feedback> findAllByMessageContainingIgnoreCase(String message);
+    Page<Feedback> findAllByMessageContainingIgnoreCase(String message, Pageable pageable);
 
-    List<Feedback> findAllByInsertDateAfter(String date);
+    Page<Feedback> findAllByInsertDateAfter(String date, Pageable pageable);
 
-    List<Feedback> findAllByInsertDateBefore(String date);
+    Page<Feedback> findAllByInsertDateBefore(String date, Pageable pageable);
 
-    List<Feedback> findAllByInsertDateBetween(String startDate, String endDate);
+    Page<Feedback> findAllByInsertDateBetween(String startDate, String endDate, Pageable pageable);
 
-    List<Feedback> findAllByStarsGreaterThanEqual(int stars);
+    Page<Feedback> findAllByStarsGreaterThanEqual(int stars, Pageable pageable);
 
-    List<Feedback> findAllByStarsIsLessThanEqual(int stars);
+    Page<Feedback> findAllByStarsIsLessThanEqual(int stars, Pageable pageable);
 
     Optional<Feedback> findByUserId(String userId);
 }

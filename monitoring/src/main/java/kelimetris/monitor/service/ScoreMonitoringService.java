@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ScoreMonitoringService {
 
-    ResponseEntity<List<Score>> getScores();
+    ResponseEntity<List<Score>> getScores(int page, int size);
 
-    ResponseEntity<List<Score>> getScoresByScoreGreaterThanAndLessThan(int upper, int lower);
+    ResponseEntity<List<Score>> getScoresByScoreGreaterThanAndLessThan(int upper, int lower, int page, int size);
 
-    ResponseEntity<List<Score>> getScoresByScoreGreaterThan(int score);
+    ResponseEntity<List<Score>> getScoresByScoreGreaterThan(int score, int page, int size);
 
-    ResponseEntity<List<Score>> getScoresByScoreLessThan(int score);
+    ResponseEntity<List<Score>> getScoresByScoreLessThan(int score, int page, int size);
 }

@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserMonitoringService {
-    ResponseEntity<List<User>> getUsers();
+    ResponseEntity<List<User>> getUsers(int page, int size);
 
-    ResponseEntity<Optional<User>> getUserById();
+    ResponseEntity<?> getUserById(String userId);
 
-    ResponseEntity<Optional<User>> getUserByUsername();
+    ResponseEntity<?> getUserByUsername(String username);
 }

@@ -2,25 +2,27 @@ package kelimetris.core.lib.repository;
 
 import kelimetris.core.lib.base.BaseRepository;
 import kelimetris.core.lib.model.GameExceptionMessage;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface GameExceptionMessageRepository extends BaseRepository<GameExceptionMessage> {
-    List<GameExceptionMessage> findAll();
+    Page<GameExceptionMessage> findAll(Pageable pageable);
 
-    List<GameExceptionMessage> findAllByUserId(String userId);
+    Page<GameExceptionMessage> findAllByUserId(String userId, Pageable pageable);
 
-    List<GameExceptionMessage> findAllByInsertDateAfter(String date);
+    Page<GameExceptionMessage> findAllByInsertDateAfter(String date, Pageable pageable);
 
-    List<GameExceptionMessage> findAllByInsertDateBefore(String date);
+    Page<GameExceptionMessage> findAllByInsertDateBefore(String date, Pageable pageable);
 
-    List<GameExceptionMessage> findAllByInsertDateBetween(String startDate, String endDate);
+    Page<GameExceptionMessage> findAllByInsertDateBetween(String startDate, String endDate, Pageable pageable);
 
-    List<GameExceptionMessage> findAllByExceptionMessage(String exceptionMessage);
+    Page<GameExceptionMessage> findAllByExceptionMessage(String exceptionMessage, Pageable pageable);
 
-    List<GameExceptionMessage> findAllByGameLogId(String gameLogId);
+    Page<GameExceptionMessage> findAllByGameLogId(String gameLogId, Pageable pageable);
 
-    List<GameExceptionMessage> findAllByExceptionMessageContainingIgnoreCase(String exceptionMessage);
+    Page<GameExceptionMessage> findAllByExceptionMessageContainingIgnoreCase(String exceptionMessage, Pageable pageable);
 }

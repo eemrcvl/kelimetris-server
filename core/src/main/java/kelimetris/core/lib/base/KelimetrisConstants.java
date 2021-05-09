@@ -8,5 +8,6 @@ public interface KelimetrisConstants {
     String FEEDBACK_FAIL_MESSAGE = "An error occurred while receiving the feedback. Please try again now or later.";
     String FEEDBACK_SUCCESS_MESSAGE = "Thank you for your feedback!";
     String SCOREBOARD_RETRIEVAL_ERROR_MESSAGE = "An error occurred while retrieving the scoreboard. Please try again now or later.";
+    String USER_NOT_FOUND_MESSAGE = "User not found.";
     String UNKNOWN_ERROR_MESSAGE = "An error has occurred";
 }

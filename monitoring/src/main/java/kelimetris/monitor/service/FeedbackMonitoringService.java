@@ -6,19 +6,19 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface FeedbackMonitoringService {
-    ResponseEntity<List<Feedback>> getFeedbacks();
+    ResponseEntity<List<Feedback>> getFeedbacks(int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksOfUser(String userId);
+    ResponseEntity<List<Feedback>> getFeedbacksOfUser(String userId, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksContainingText(String message);
+    ResponseEntity<List<Feedback>> getFeedbacksContainingText(String message, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(String date);
+    ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(String date, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(String date);
+    ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(String date, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(String startDate, String endDate);
+    ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(String startDate, String endDate, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByStarsGreaterThan(int stars);
+    ResponseEntity<List<Feedback>> getFeedbacksByStarsGreaterThan(int stars, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByStarsLessThan(int stars);
+    ResponseEntity<List<Feedback>> getFeedbacksByStarsLessThan(int stars, int page, int size);
 }
