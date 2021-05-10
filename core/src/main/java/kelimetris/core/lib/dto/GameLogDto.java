@@ -10,11 +10,9 @@ import java.util.List;
 public class GameLogDto {
     private String id;
     private long numberOfClicks;
-    private int score;
-    private int numberOfTetrominos;
+    private long score;
+    private long numberOfTetrominos;
     private List<String> exceptionMessages;
-    private int wordCount;
-    private String insertDate;
-    private String insertTime;
+    private long wordCount;
     private String userId;
 }

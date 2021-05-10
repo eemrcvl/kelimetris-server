@@ -12,11 +12,11 @@ public interface FeedbackMonitoringService {
 
     ResponseEntity<List<Feedback>> getFeedbacksContainingText(String message, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(String date, int page, int size);
+    ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(long date, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(String date, int page, int size);
+    ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(long date, int page, int size);
 
-    ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(String startDate, String endDate, int page, int size);
+    ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(long startDate, long endDate, int page, int size);
 
     ResponseEntity<List<Feedback>> getFeedbacksByStarsGreaterThan(int stars, int page, int size);
 

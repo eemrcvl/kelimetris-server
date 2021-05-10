@@ -8,7 +8,5 @@ import lombok.Data;
 public class FeedbackDto {
     private String userId;
     private String message;
-    private String insertDate;
-    private String insertTime;
     private int stars;
 }

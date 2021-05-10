@@ -2,6 +2,7 @@ package kelimetris.core.lib.utility.handlers;
 
 import kelimetris.core.lib.base.KelimetrisConstants;
 import kelimetris.core.lib.dto.ApiResponse;
+import kelimetris.core.lib.utility.enums.UserOperationsEnum;
 import kelimetris.core.lib.utility.exceptions.FeedbackException;
 import kelimetris.core.lib.utility.exceptions.RegistrationException;
 import kelimetris.core.lib.utility.exceptions.ScoreboardException;
@@ -28,7 +29,7 @@ public class ApiExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public ApiResponse handleRegistrationException(RegistrationException registrationException) {
-        return new ApiResponse(KelimetrisConstants.REGISTRATION_FAIL_MESSAGE);
+        return new ApiResponse(UserOperationsEnum.REGISTRATION_FAIL_MESSAGE.getMessage());
     }
 
     @ExceptionHandler(ScoreboardException.class)
@@ -42,6 +43,6 @@ public class ApiExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public ApiResponse handleUserNotFoundException(UserNotFoundException userNotFoundException) {
-        return new ApiResponse(KelimetrisConstants.USER_NOT_FOUND_MESSAGE);
+        return new ApiResponse(UserOperationsEnum.USER_NOT_FOUND_MESSAGE.getMessage());
     }
 }

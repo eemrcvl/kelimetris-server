@@ -23,8 +23,7 @@ public class GameExceptionMessage extends BaseEntity {
     private String gameLogId;
     @NonNull
     private String exceptionMessage;
-    @NonNull
-    private String insertDate;
+    private long insertDate;
     @NonNull
     private String insertTime;
     @NonNull

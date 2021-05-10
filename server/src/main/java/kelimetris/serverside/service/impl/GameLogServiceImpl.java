@@ -8,6 +8,7 @@ import kelimetris.core.lib.repository.GameExceptionMessageRepository;
 import kelimetris.core.lib.repository.GameLogRepository;
 import kelimetris.core.lib.repository.ScoreboardRepository;
 import kelimetris.core.lib.repository.UserRepository;
+import kelimetris.core.lib.utility.methods.UtilityMethods;
 import kelimetris.serverside.service.GameLogService;
 import org.springframework.stereotype.Service;
 
@@ -39,8 +40,8 @@ public class GameLogServiceImpl implements GameLogService {
     private GameLog processGameLogObject(GameLogDto gameLogDto) {
         var gameLog = GameLog.builder()
                 .id(gameLogDto.getId())
-                .insertDate(gameLogDto.getInsertDate())
-                .insertTime(gameLogDto.getInsertTime())
+                .insertDate(UtilityMethods.getCurrentDate())
+                .insertTime(UtilityMethods.getCurrentTime())
                 .numberOfClicks(gameLogDto.getNumberOfClicks())
                 .numberOfTetrominos(gameLogDto.getNumberOfTetrominos())
                 .score(gameLogDto.getScore())
@@ -57,10 +58,11 @@ public class GameLogServiceImpl implements GameLogService {
     }
 
     private void processScoreLog(GameLogDto gameLogDto) {
-
+        long lastUpdated = UtilityMethods.getLastUpdated();
         if (scoreboardRepository.getScoreByUserId(gameLogDto.getUserId()).isPresent()) {
             var scoreToUpdate = scoreboardRepository.getScoreByUserId(gameLogDto.getUserId()).get();
             scoreToUpdate.setScore(scoreToUpdate.getScore() + gameLogDto.getScore());
+            scoreToUpdate.setLastUpdated(lastUpdated);
             scoreboardRepository.save(scoreToUpdate);
         } else {
             if (userRepository.findUserById(gameLogDto.getUserId()).isPresent()) {
@@ -69,6 +71,7 @@ public class GameLogServiceImpl implements GameLogService {
                         .score(gameLogDto.getScore())
                         .userId(gameLogDto.getUserId())
                         .username(user.getUsername())
+                        .lastUpdated(lastUpdated)
                         .build();
                 scoreboardRepository.save(newScore);
             }
@@ -81,8 +84,8 @@ public class GameLogServiceImpl implements GameLogService {
             var gameExceptionMessage = GameExceptionMessage.builder()
                     .gameLogId(gameLogDto.getId())
                     .exceptionMessage(message)
-                    .insertDate(gameLogDto.getInsertDate())
-                    .insertTime(gameLogDto.getInsertTime())
+                    .insertDate(UtilityMethods.getCurrentDate())
+                    .insertTime(UtilityMethods.getCurrentTime())
                     .userId(gameLogDto.getUserId())
                     .build();
             gameExceptionMessageRepository.save(gameExceptionMessage);

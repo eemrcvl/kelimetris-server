@@ -36,22 +36,22 @@ public class FeedbackMonitoringController {
     }
 
     @RequestMapping(value = "/feedbacks_after/{date}", method = RequestMethod.GET)
-    public ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(@PathVariable("date") String date,
+    public ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(@PathVariable("date") long date,
                                                                   @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                   @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return feedbackMonitoringService.getFeedbacksByDateAfter(date, pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/feedbacks_before/{date}", method = RequestMethod.GET)
-    public ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(@PathVariable("date") String date,
+    public ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(@PathVariable("date") long date,
                                                                    @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                    @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return feedbackMonitoringService.getFeedbacksByDateBefore(date, pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/feedbacks_between/{start}/{end}", method = RequestMethod.GET)
-    public ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(@PathVariable("start") String startDate,
-                                                                    @PathVariable("end") String endDate,
+    public ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(@PathVariable("start") long startDate,
+                                                                    @PathVariable("end") long endDate,
                                                                     @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                     @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return feedbackMonitoringService.getFeedbacksByDateBetween(startDate, endDate, pageNumber, pageSize);

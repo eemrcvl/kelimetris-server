@@ -50,22 +50,22 @@ public class GameExceptionMonitoringController {
     }
 
     @RequestMapping(value = "/exceptions_after/{date}", method = RequestMethod.GET)
-    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateAfter(@PathVariable("date") String date,
+    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateAfter(@PathVariable("date") long date,
                                                                                    @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                                    @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return gameExceptionMonitoringService.getGameExceptionsByDateAfter(date, pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/exceptions_before/{date}", method = RequestMethod.GET)
-    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBefore(@PathVariable("date") String date,
+    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBefore(@PathVariable("date") long date,
                                                                                     @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                                     @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return gameExceptionMonitoringService.getGameExceptionsByDateBefore(date, pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/exceptions_between/{start}/{end}", method = RequestMethod.GET)
-    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBetween(@PathVariable("start") String startDate,
-                                                                                     @PathVariable("end") String endDate,
+    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBetween(@PathVariable("start") long startDate,
+                                                                                     @PathVariable("end") long endDate,
                                                                                      @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                                      @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return gameExceptionMonitoringService.getGameExceptionsByDateBetween(startDate, endDate, pageNumber, pageSize);

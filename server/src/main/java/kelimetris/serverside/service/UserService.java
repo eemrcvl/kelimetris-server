@@ -7,5 +7,9 @@ import org.springframework.http.ResponseEntity;
 
 public interface UserService {
     ResponseEntity<ApiResponse> register(UserDto userDto);
+
     ResponseEntity<ApiResponse> receiveFeedback(FeedbackDto feedbackDto);
+
+    ResponseEntity<ApiResponse> updateUsername(UserDto userDto);
+
 }

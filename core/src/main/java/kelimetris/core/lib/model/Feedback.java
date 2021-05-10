@@ -25,10 +25,8 @@ public class Feedback extends BaseEntity {
     private String userId;
     @NonNull
     private String message;
-    @NonNull
-    private String insertDate;
+    private long insertDate;
     @NonNull
     private String insertTime;
-    @NonNull
     private int stars;
 }

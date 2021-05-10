@@ -42,21 +42,21 @@ public class FeedbackMonitoringServiceImpl implements FeedbackMonitoringService 
     }
 
     @Override
-    public ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(String date, int page, int size) {
+    public ResponseEntity<List<Feedback>> getFeedbacksByDateAfter(long date, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Feedback> feedbacks = feedbackRepository.findAllByInsertDateAfter(date, pageable);
         return new ResponseEntity<>(feedbacks.getContent(), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(String date, int page, int size) {
+    public ResponseEntity<List<Feedback>> getFeedbacksByDateBefore(long date, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Feedback> feedbacks = feedbackRepository.findAllByInsertDateBefore(date, pageable);
         return new ResponseEntity<>(feedbacks.getContent(), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(String startDate, String endDate, int page, int size) {
+    public ResponseEntity<List<Feedback>> getFeedbacksByDateBetween(long startDate, long endDate, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Feedback> feedbacks = feedbackRepository.findAllByInsertDateBetween(startDate, endDate, pageable);
         return new ResponseEntity<>(feedbacks.getContent(), HttpStatus.OK);

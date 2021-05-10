@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 public class GameLogMonitoringController {
-    private GameLogMonitoringServiceImpl gameLogMonitoringService;
+    private final GameLogMonitoringServiceImpl gameLogMonitoringService;
 
     public GameLogMonitoringController(GameLogMonitoringServiceImpl gameLogMonitoringService) {
         this.gameLogMonitoringService = gameLogMonitoringService;
@@ -29,22 +29,22 @@ public class GameLogMonitoringController {
     }
 
     @RequestMapping(value = "/logs_after/{date}", method = RequestMethod.GET)
-    public ResponseEntity<List<GameLog>> getGameLogsByDateAfter(@PathVariable("date") String date,
+    public ResponseEntity<List<GameLog>> getGameLogsByDateAfter(@PathVariable("date") long date,
                                                                 @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                 @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return gameLogMonitoringService.getGameLogsByDateAfter(date, pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/logs_before/{date}", method = RequestMethod.GET)
-    public ResponseEntity<List<GameLog>> getGameLogsByDateBefore(@PathVariable("date") String date,
+    public ResponseEntity<List<GameLog>> getGameLogsByDateBefore(@PathVariable("date") long date,
                                                                  @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                  @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return gameLogMonitoringService.getGameLogsByDateBefore(date, pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/logs_between/{start}/{end}", method = RequestMethod.GET)
-    public ResponseEntity<List<GameLog>> getGameLogsByDateBetween(@PathVariable("start") String startDate,
-                                                                  @PathVariable("end") String endDate,
+    public ResponseEntity<List<GameLog>> getGameLogsByDateBetween(@PathVariable("start") long startDate,
+                                                                  @PathVariable("end") long endDate,
                                                                   @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNumber,
                                                                   @RequestParam(value = "pageSize", required = false, defaultValue = "50") int pageSize) {
         return gameLogMonitoringService.getGameLogsByDateBetween(startDate, endDate, pageNumber, pageSize);

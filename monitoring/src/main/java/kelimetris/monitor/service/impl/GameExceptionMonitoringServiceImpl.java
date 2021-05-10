@@ -35,21 +35,21 @@ public class GameExceptionMonitoringServiceImpl implements GameExceptionMonitori
     }
 
     @Override
-    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateAfter(String date, int page, int size) {
+    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateAfter(long date, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<GameExceptionMessage> exceptions = gameExceptionMessageRepository.findAllByInsertDateAfter(date, pageable);
         return new ResponseEntity<>(exceptions.getContent(), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBefore(String date, int page, int size) {
+    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBefore(long date, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<GameExceptionMessage> exceptions = gameExceptionMessageRepository.findAllByInsertDateBefore(date, pageable);
         return new ResponseEntity<>(exceptions.getContent(), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBetween(String startDate, String endDate, int page, int size) {
+    public ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBetween(long startDate, long endDate, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<GameExceptionMessage> exceptions = gameExceptionMessageRepository.findAllByInsertDateBetween(startDate, endDate, pageable);
         return new ResponseEntity<>(exceptions.getContent(), HttpStatus.OK);

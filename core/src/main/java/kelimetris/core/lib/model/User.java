@@ -18,4 +18,8 @@ public class User extends BaseEntity {
     private String id;
     @NonNull
     private String username;
+    private long insertDate;
+    @NonNull
+    private String insertTime;
+    private long lastUpdated;
 }

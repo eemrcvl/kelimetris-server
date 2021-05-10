@@ -11,3 +11,5 @@
     * Configler
         * Eş zamanlı app (monitor & server) init.
     * Paketleme
+    * Feedback mekanizmasında ek kontroller
+      * User başına gelen feedback sayısını kontrol etme -> çok sayıda istekle server doldurulabilir. 

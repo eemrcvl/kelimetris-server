@@ -17,16 +17,11 @@ public class GameLog extends BaseEntity {
     @Id
     @NonNull
     private String id;
-    @NonNull
     private long numberOfClicks;
-    @NonNull
-    private int numberOfTetrominos;
-    @NonNull
-    private int score;
-    @NonNull
-    private int wordCount;
-    @NonNull
-    private String insertDate;
+    private long numberOfTetrominos;
+    private long score;
+    private long wordCount;
+    private long insertDate;
     @NonNull
     private String insertTime;
     @NonNull

@@ -17,11 +17,11 @@ public interface FeedbackRepository extends BaseRepository<Feedback> {
 
     Page<Feedback> findAllByMessageContainingIgnoreCase(String message, Pageable pageable);
 
-    Page<Feedback> findAllByInsertDateAfter(String date, Pageable pageable);
+    Page<Feedback> findAllByInsertDateAfter(long date, Pageable pageable);
 
-    Page<Feedback> findAllByInsertDateBefore(String date, Pageable pageable);
+    Page<Feedback> findAllByInsertDateBefore(long date, Pageable pageable);
 
-    Page<Feedback> findAllByInsertDateBetween(String startDate, String endDate, Pageable pageable);
+    Page<Feedback> findAllByInsertDateBetween(long startDate, long endDate, Pageable pageable);
 
     Page<Feedback> findAllByStarsGreaterThanEqual(int stars, Pageable pageable);
 

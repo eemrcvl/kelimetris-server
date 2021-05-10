@@ -26,10 +26,10 @@ public class Score extends BaseEntity {
     private String userId;
     @NonNull
     private String username;
-    @NonNull
-    private int score;
+    private long score;
+    private long lastUpdated; // in epoch format
 
-    public Score(String userId, String username, int score) {
+    public Score(String userId, String username, long score) {
         this.userId = userId;
         this.username = username;
         this.score = score;

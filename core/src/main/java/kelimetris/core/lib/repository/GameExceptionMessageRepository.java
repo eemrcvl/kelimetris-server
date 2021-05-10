@@ -14,11 +14,11 @@ public interface GameExceptionMessageRepository extends BaseRepository<GameExcep
 
     Page<GameExceptionMessage> findAllByUserId(String userId, Pageable pageable);
 
-    Page<GameExceptionMessage> findAllByInsertDateAfter(String date, Pageable pageable);
+    Page<GameExceptionMessage> findAllByInsertDateAfter(long date, Pageable pageable);
 
-    Page<GameExceptionMessage> findAllByInsertDateBefore(String date, Pageable pageable);
+    Page<GameExceptionMessage> findAllByInsertDateBefore(long date, Pageable pageable);
 
-    Page<GameExceptionMessage> findAllByInsertDateBetween(String startDate, String endDate, Pageable pageable);
+    Page<GameExceptionMessage> findAllByInsertDateBetween(long startDate, long endDate, Pageable pageable);
 
     Page<GameExceptionMessage> findAllByExceptionMessage(String exceptionMessage, Pageable pageable);
 

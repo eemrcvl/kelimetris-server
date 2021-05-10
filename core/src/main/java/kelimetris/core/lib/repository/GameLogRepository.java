@@ -12,10 +12,10 @@ public interface GameLogRepository extends BaseRepository<GameLog> {
 
     Page<GameLog> findAllByUserId(String userId, Pageable pageable);
 
-    Page<GameLog> findAllByInsertDateAfter(String date, Pageable pageable);
+    Page<GameLog> findAllByInsertDateAfter(long date, Pageable pageable);
 
-    Page<GameLog> findAllByInsertDateBefore(String date, Pageable pageable);
+    Page<GameLog> findAllByInsertDateBefore(long date, Pageable pageable);
 
-    Page<GameLog> findAllByInsertDateBetween(String startDate, String endDate, Pageable pageable);
+    Page<GameLog> findAllByInsertDateBetween(long startDate, long endDate, Pageable pageable);
 
 }

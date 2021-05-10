@@ -10,9 +10,9 @@ public interface GameLogMonitoringService {
 
     ResponseEntity<List<GameLog>> getGameLogsOfUser(String userId, int page, int size);
 
-    ResponseEntity<List<GameLog>> getGameLogsByDateAfter(String date, int page, int size);
+    ResponseEntity<List<GameLog>> getGameLogsByDateAfter(long date, int page, int size);
 
-    ResponseEntity<List<GameLog>> getGameLogsByDateBefore(String date, int page, int size);
+    ResponseEntity<List<GameLog>> getGameLogsByDateBefore(long date, int page, int size);
 
-    ResponseEntity<List<GameLog>> getGameLogsByDateBetween(String startDate, String endDate, int page, int size);
+    ResponseEntity<List<GameLog>> getGameLogsByDateBetween(long startDate, long endDate, int page, int size);
 }

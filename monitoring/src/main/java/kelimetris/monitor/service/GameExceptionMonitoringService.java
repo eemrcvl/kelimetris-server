@@ -10,11 +10,11 @@ public interface GameExceptionMonitoringService {
 
     ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByUserId(String userId, int page, int size);
 
-    ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateAfter(String date, int page, int size);
+    ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateAfter(long date, int page, int size);
 
-    ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBefore(String date, int page, int size);
+    ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBefore(long date, int page, int size);
 
-    ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBetween(String startDate, String endDate, int page, int size);
+    ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByDateBetween(long startDate, long endDate, int page, int size);
 
     ResponseEntity<List<GameExceptionMessage>> getGameExceptionsByExceptionMessage(String exceptionMessage, int page, int size);
 

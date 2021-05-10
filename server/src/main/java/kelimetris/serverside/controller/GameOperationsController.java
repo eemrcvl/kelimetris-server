@@ -3,14 +3,11 @@ package kelimetris.serverside.controller;
 import kelimetris.core.lib.dto.ApiResponse;
 import kelimetris.core.lib.dto.FeedbackDto;
 import kelimetris.core.lib.dto.UserDto;
-import kelimetris.core.lib.model.Score;
 import kelimetris.serverside.service.impl.PingServiceImpl;
 import kelimetris.serverside.service.impl.ScoreboardServiceImpl;
 import kelimetris.serverside.service.impl.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class GameOperationsController {
@@ -34,13 +31,18 @@ public class GameOperationsController {
         return userService.register(userDto);
     }
 
+    @RequestMapping(value = "/update-username", method = RequestMethod.POST)
+    public ResponseEntity<?> updateUsername(@RequestBody UserDto userDto) {
+        return userService.updateUsername(userDto);
+    }
+
     @RequestMapping(value = "/is-online", method = RequestMethod.GET)
-    public ResponseEntity isOnline() {
+    public ResponseEntity<?> isOnline() {
         return pingService.okService();
     }
 
     @RequestMapping(value = "/scoreboard/{id}", method = RequestMethod.GET)
-    public ResponseEntity getScoreboard(@PathVariable(value = "id") String userId) {
+    public ResponseEntity<?> getScoreboard(@PathVariable(value = "id") String userId) {
         return scoreboardService.returnScoreboard(userId);
     }
 }
