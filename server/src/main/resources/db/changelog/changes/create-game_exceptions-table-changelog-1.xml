@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="emre" id="5">
+        <preConditions  onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="game_exceptions"/>
+            </not>
+        </preConditions>
+        <createTable tableName="game_exceptions">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="GAME_LOG_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXCEPTION_MESSAGE" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INSERT_DATE" type="BIGINT"/>
+            <column name="INSERT_TIME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

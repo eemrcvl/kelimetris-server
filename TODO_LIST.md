@@ -7,9 +7,9 @@
     
 2. Server Tarafında Yapılacaklar:
     * Logging mekanizması
-    * MySQL veya başka bir DB implementasyonu
+    * <del>MySQL veya başka bir DB implementasyonu
     * Configler
         * Eş zamanlı app (monitor & server) init.
-    * Paketleme
+    * <del>Paketleme
     * Feedback mekanizmasında ek kontroller
       * User başına gelen feedback sayısını kontrol etme -> çok sayıda istekle server doldurulabilir. 

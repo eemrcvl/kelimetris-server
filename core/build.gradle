@@ -15,18 +15,20 @@ bootJar {
 jar {
     enabled = true
 }
-test {
-    useJUnitPlatform()
-}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
     compileOnly 'org.projectlombok:lombok:1.18.18'
     annotationProcessor 'org.projectlombok:lombok:1.18.18'
+    api group: 'org.postgresql', name: 'postgresql', version: '42.2.20'
     api group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.5'
     api group: 'org.modelmapper', name: 'modelmapper', version: '2.4.0'
     implementation group: 'org.springframework', name: 'spring-web', version: '5.3.6'
     api group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.3'
+    api group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    api group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    api group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     api group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.12.3'
 }
